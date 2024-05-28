@@ -1,0 +1,4 @@
+# ignore the media folder data
+media/
+uploads/
+admin_static/

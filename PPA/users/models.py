@@ -1,0 +1,50 @@
+from django.db import models
+from django.contrib.auth.models import User
+from django.utils import timezone
+class TimeStampedModel(models.Model):
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='%(class)s_created_by')
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
+    updated_at = models.DateTimeField(auto_now=True)
+    class Meta:
+        abstract = True
+class Designation(TimeStampedModel):
+    Designations_Covered_Study=models.TextField(blank=True,null=True)
+class Department(TimeStampedModel):
+    Departments_Covered_In_The_Study=models.TextField(blank=True,null=True)
+class Client(TimeStampedModel):
+    Customer_Name=models.TextField(blank=True,null=True)
+    Project_Name=models.TextField(blank=True,null=True)
+    Project_Owner=models.TextField(blank=True,null=True)
+    Project_Start_Date=models.DateField()
+    Study_Period_Beginning_Date=models.DateField()
+    Study_Period_End_Date=models.DateField()
+    Earliest_Date_For_Date_Of_Joining_Relevant_For_The_Study=models.DateField()
+    End_date_for_Date_Of_Joining_Relevant_For_The_Study=models.DateField()
+    No_Of_Designations_Covered_Study=models.IntegerField(blank=True,null=True)
+    No_Of_Departments_Covered_In_The_Study=models.IntegerField(blank=True,null=True)
+    Unit_For_Value_Performance=models.TextField(blank=True,null=True)
+    Unit_For_Quantity_Performance= models.TextField(blank=True,null=True)
+    Project_Maximum_Residency_Month=models.IntegerField(blank=True,null=True)
+    Project_Top_Outlier_Rank_For_Residency_Month_Of_Performance_Month=models.IntegerField(blank=True,null=True)
+    Project_Bottom_Outlier_Rank_For_Residency_Month_Of_Performance_Month=models.IntegerField(blank=True,null=True)
+    Project_Maximum_Performance_Value_Target=models.IntegerField(blank=True,null=True)
+    Project_Top_Outlier_Rank_For_Maximum_Performance_Value_Target=models.IntegerField(blank=True,null=True)
+    Project_Bottom_Outlier_Rank_For_Maximum_Performance_Value_Target=models.IntegerField(blank=True,null=True)
+    Project_Maximum_Performance_value_ACTUAL=models.IntegerField(blank=True,null=True)
+    Project_Top_Outlier_Rank_for_Maximum_Performance_Value_ACTUAL=models.IntegerField(blank=True,null=True)
+    Project_Bottom_Outlier_Rank_Maximum_Performance_Value_ACTUAL=models.IntegerField(blank=True,null=True)
+    Project_Maximum_Performance_QUANTITY_target =models.IntegerField(blank=True,null=True)
+    Project_Top_Outlier_Rank_for_Maximum_Performance_Quantity_Target=models.IntegerField(blank=True,null=True)
+    Project_Bottom_Outlier_Rank_Maximum_Performance_QuantityTarget=models.IntegerField(blank=True,null=True)
+    Project_Maximum_Performance_QUANTITY_ACTUAL=models.IntegerField(blank=True,null=True)
+    Project_Top_Outlier_Rank_for_Maximum_Performance_Quantity_ACTUAL=models.IntegerField(blank=True,null=True)
+    Project_Bottom_Outlier_Rank_Maximum_Performance_Quantity_ACTUAL=models.IntegerField(blank=True,null=True)
+    Project_Maximum_OVER_ALL_Performance_Achievement=models.TextField(blank=True,null=True)
+    Project_Top_Outlier_Rank_for_Maximum_OVER_ALL_Performance_Achievement=models.IntegerField(blank=True,null=True)
+    Project_Bottom_Outlier_Rank_Maximum_OVER_ALL_Performance_Achievement =models.IntegerField(blank=True,null=True) 
+    Project_Maximum_Monthly_Fixed_salary_Index=models.IntegerField(blank=True,null=True)
+    Project_Top_Outlier_Rank_for_Maximum_Monthly_Fixed_salary_Index=models.IntegerField(blank=True,null=True)
+    Project_Bottom_Outlier_Rank_Maximum_Monthly_Fixed_salary_Index=models.IntegerField(blank=True,null=True)
+    Project_Maximum_Monthly_Incentive=models.IntegerField(blank=True,null=True)
+    Project_Top_Outlier_Rank_for_Maximum_Monthly_Incentive=models.IntegerField(blank=True,null=True)
+    Project_Bottom_Outlier_Rank_Maximum_Monthly_Incentive=models.IntegerField(blank=True,null=True)
